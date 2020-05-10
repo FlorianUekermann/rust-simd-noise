@@ -81,123 +81,56 @@
 //! ```
 
 extern crate simdeez;
-pub mod avx2;
 pub mod cellular;
 mod noise_helpers;
 pub mod scalar;
 mod shared;
 pub mod simplex;
-pub mod sse2;
-pub mod sse41;
 
 macro_rules! get_1d_noise {
     ($setting:expr) => {
-        if is_x86_feature_detected!("avx2") {
-            unsafe { avx2::get_1d_noise($setting) }
-        } else if is_x86_feature_detected!("sse4.1") {
-            unsafe { sse41::get_1d_noise($setting) }
-        } else if is_x86_feature_detected!("sse2") {
-            unsafe { sse2::get_1d_noise($setting) }
-        } else {
             unsafe { scalar::get_1d_noise($setting) }
-        }
     };
 }
 
 macro_rules! get_2d_noise {
     ($setting:expr) => {
-        if is_x86_feature_detected!("avx2") {
-            unsafe { avx2::get_2d_noise($setting) }
-        } else if is_x86_feature_detected!("sse4.1") {
-            unsafe { sse41::get_2d_noise($setting) }
-        } else if is_x86_feature_detected!("sse2") {
-            unsafe { sse2::get_2d_noise($setting) }
-        } else {
             unsafe { scalar::get_2d_noise($setting) }
-        }
     };
 }
 
 macro_rules! get_3d_noise {
     ($setting:expr) => {
-        if is_x86_feature_detected!("avx2") {
-            unsafe { avx2::get_3d_noise($setting) }
-        } else if is_x86_feature_detected!("sse4.1") {
-            unsafe { sse41::get_3d_noise($setting) }
-        } else if is_x86_feature_detected!("sse2") {
-            unsafe { sse2::get_3d_noise($setting) }
-        } else {
             unsafe { scalar::get_3d_noise($setting) }
-        }
     };
 }
 
 macro_rules! get_4d_noise {
     ($setting:expr) => {
-        if is_x86_feature_detected!("avx2") {
-            unsafe { avx2::get_4d_noise($setting) }
-        } else if is_x86_feature_detected!("sse4.1") {
-            unsafe { sse41::get_4d_noise($setting) }
-        } else if is_x86_feature_detected!("sse2") {
-            unsafe { sse2::get_4d_noise($setting) }
-        } else {
             unsafe { scalar::get_4d_noise($setting) }
-        }
     };
 }
 macro_rules! get_1d_scaled_noise {
     ($setting:expr) => {
-        if is_x86_feature_detected!("avx2") {
-            unsafe { avx2::get_1d_scaled_noise($setting) }
-        } else if is_x86_feature_detected!("sse4.1") {
-            unsafe { sse41::get_1d_scaled_noise($setting) }
-        } else if is_x86_feature_detected!("sse2") {
-            unsafe { sse2::get_1d_scaled_noise($setting) }
-        } else {
             unsafe { scalar::get_1d_scaled_noise($setting) }
-        }
     };
 }
 
 macro_rules! get_2d_scaled_noise {
     ($setting:expr) => {
-        if is_x86_feature_detected!("avx2") {
-            unsafe { avx2::get_2d_scaled_noise($setting) }
-        } else if is_x86_feature_detected!("sse4.1") {
-            unsafe { sse41::get_2d_scaled_noise($setting) }
-        } else if is_x86_feature_detected!("sse2") {
-            unsafe { sse2::get_2d_scaled_noise($setting) }
-        } else {
             unsafe { scalar::get_2d_scaled_noise($setting) }
-        }
     };
 }
 
 macro_rules! get_3d_scaled_noise {
     ($setting:expr) => {
-        if is_x86_feature_detected!("avx2") {
-            unsafe { avx2::get_3d_scaled_noise($setting) }
-        } else if is_x86_feature_detected!("sse4.1") {
-            unsafe { sse41::get_3d_scaled_noise($setting) }
-        } else if is_x86_feature_detected!("sse2") {
-            unsafe { sse2::get_3d_scaled_noise($setting) }
-        } else {
             unsafe { scalar::get_3d_scaled_noise($setting) }
-        }
     };
 }
 
 macro_rules! get_4d_scaled_noise {
     ($setting:expr) => {
-        if is_x86_feature_detected!("avx2") {
-            unsafe { avx2::get_4d_scaled_noise($setting) }
-        } else if is_x86_feature_detected!("sse4.1") {
-            unsafe { sse41::get_4d_scaled_noise($setting) }
-        } else if is_x86_feature_detected!("sse2") {
-            unsafe { sse2::get_4d_scaled_noise($setting) }
-        } else {
             unsafe { scalar::get_4d_scaled_noise($setting) }
-        }
     };
 }
 

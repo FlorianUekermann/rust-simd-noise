@@ -14,8 +14,7 @@ edition="2018"
 
 
 [dependencies]
-simdeez = "1.0.1"
-#simdeez = {path = "../simdeez"}
+simdeez = { git="https://github.com/FlorianUekermann/simdeez"}
 
 [dev-dependencies]
 criterion = "0.3.0"
